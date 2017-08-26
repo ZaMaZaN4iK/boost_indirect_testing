@@ -35,7 +35,7 @@ before_install:
     - wget https://raw.githubusercontent.com/boostorg/regression/develop/testing/src/run.py
 
 script:
-    - python run.py --incremental --runner=indirect_travisci_tests --toolsets=$CC --tag=${BOOST_TAG} ${BOOST_LIBRARIES} & RUNPID=$!; while  pgrep -c -x cc1plus ||  pgrep -c -x ld  ||  pgrep -c -x as  ||  pgrep -c -x python ; do echo "... i'm alive ..."; sleep 10; done
+    - python run.py --incremental --runner=indirect_travisci_tests --toolsets=$CC --tag=${BOOST_TAG} ${BOOST_LIBRARIES} & RUNPID=$!; while  pgrep -c -x cc1plus ||  pgrep -c -x ld  ||  pgrep -c -x as  ||  pgrep -c -x python ; do echo "... i'm alive ..."; sleep 100; done
     - df -k
 
 after_success:
