@@ -10,6 +10,7 @@ os:
     - linux
 
 env:
+    - BOOST_LIBRARIES=--libraries=algorithm
     - BOOST_LIBRARIES=--libraries=accumulators,algorithm,align,any,application,array,asio,assert,assign,atomic,bimap,bind,chrono,circular_buffer,compatibility,compute,concept_check,config,container,context,conversion,convert,core,coroutine,coroutine2,crc,date_time,detail,disjoint_sets,dll,document,dynamic_bitset,endian,exception,filesystem,flyweight,foreach,format,function,functional,function_types,fusion
     - BOOST_LIBRARIES=--libraries=geometry
     - BOOST_LIBRARIES=--libraries=gil,graph,graph_parallel,heap,icl,integer
@@ -35,10 +36,9 @@ before_install:
     - wget https://raw.githubusercontent.com/boostorg/regression/develop/testing/src/run.py
 
 script:
-    - python run.py --incremental --runner=indirect_travisci_tests --toolsets=$CC --tag=${BOOST_TAG} ${BOOST_LIBRARIES} 
-    - while true ; do top; sleep 5; done
+    - python run.py --incremental --runner=indirect_travisci_tests --toolsets=$CC --tag=${BOOST_TAG} ${BOOST_LIBRARIES}
 
-after_success:
+#after_success:
 #    - mkdir cover
 #    - find ./ -name "*.gcda" -exec cp "{}" ../cover \;
 #    - find ./ -name "*.gcno" -exec cp "{}" ../cover \;
