@@ -5,7 +5,7 @@
 # Copyright Antony Polukhin 2014-2015,
 #           Alexander Zaitsev 2017, <zamazan4ik@tut.by>
 
-sudo: false
+sudo: true
 os:
     - linux
 
@@ -33,6 +33,8 @@ before_install:
     - echo OS is ${TRAVIS_OS_NAME}
     - mkdir $HOME/do_test
     - cd $HOME/do_test
+    - sudo apt-get install python-pip
+    - sudo pip install numpy
     - wget https://raw.githubusercontent.com/boostorg/regression/develop/testing/src/run.py
 
 script:
