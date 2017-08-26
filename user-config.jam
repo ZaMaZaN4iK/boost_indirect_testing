@@ -1,1 +1,0 @@
-using gcc : coverage : g++-4.6 : <compileflags>--coverage <linkflags>--coverage ;
