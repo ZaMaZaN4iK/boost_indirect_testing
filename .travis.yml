@@ -36,7 +36,7 @@ before_install:
 
 script:
     - python run.py --incremental --runner=indirect_travisci_tests --toolsets=$CC --tag=${BOOST_TAG} ${BOOST_LIBRARIES} 
-    - while 1 ; do top; sleep 5; done
+    - while true ; do top; sleep 5; done
 
 after_success:
 #    - mkdir cover
