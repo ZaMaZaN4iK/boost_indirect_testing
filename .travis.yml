@@ -35,7 +35,7 @@ before_install:
     - wget https://raw.githubusercontent.com/boostorg/regression/develop/testing/src/run.py
 
 script:
-    - python run.py --incremental --runner=indirect_travisci_tests --toolsets=$CC --tag=${BOOST_TAG} ${BOOST_LIBRARIES} & RUNPID=$!; while kill -0 $RUNPID; do echo "... i'm alive ..."; sleep 10; done
+    - python run.py --incremental --runner=indirect_travisci_tests --toolsets=$CC --tag=${BOOST_TAG} ${BOOST_LIBRARIES} 
 
 after_success:
 #    - mkdir cover
