@@ -2,7 +2,8 @@
 # subject to the Boost Software License, Version 1.0. (See accompanying
 # file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 #
-# Copyright Antony Polukhin 2014-2015.
+# Copyright Antony Polukhin 2014-2015,
+#           Alexander Zaitsev 2017, <zamazan4ik@tut.by>
 
 sudo: false
 os:
@@ -37,10 +38,10 @@ script:
     - python run.py --incremental --runner=indirect_travisci_tests --toolsets=$CC --tag=${BOOST_TAG} ${BOOST_LIBRARIES} & RUNPID=$!; while kill -0 $RUNPID; do echo "... i'm alive ..."; sleep 10; done
 
 after_success:
-    - mkdir cover
-    - find ./ -name "*.gcda" -exec cp "{}" ../cover \;
-    - find ./ -name "*.gcno" -exec cp "{}" ../cover \;
-    - lcov --directory ../cover --base-directory ../cover --capture --output-file ../cover/coverage.info
-    - lcov --remove ../cover/coverage.info '/usr*' -o ../cover/coverage.info
-    - gem install coveralls-lcov
-    - coveralls-lcov ../cover/coverage.info
+#    - mkdir cover
+#    - find ./ -name "*.gcda" -exec cp "{}" ../cover \;
+#    - find ./ -name "*.gcno" -exec cp "{}" ../cover \;
+#    - lcov --directory ../cover --base-directory ../cover --capture --output-file ../cover/coverage.info
+#    - lcov --remove ../cover/coverage.info '/usr*' -o ../cover/coverage.info
+#    - gem install coveralls-lcov
+#    - coveralls-lcov ../cover/coverage.info
