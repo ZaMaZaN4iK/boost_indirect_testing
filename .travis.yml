@@ -36,8 +36,7 @@ before_install:
     - wget https://raw.githubusercontent.com/boostorg/regression/develop/testing/src/run.py
 
 script:
-    - python run.py --incremental --runner=indirect_travisci_tests --toolsets=$CC --tag=${BOOST_TAG} ${BOOST_LIBRARIES}
-    - cat /home/travis/do_test/boost_regression/stage/bin/process_jam_log
+    - python run.py --runner=indirect_travisci_tests --toolsets=$CC --tag=${BOOST_TAG} ${BOOST_LIBRARIES}
 
 #after_success:
 #    - mkdir cover
