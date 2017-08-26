@@ -37,6 +37,7 @@ before_install:
 
 script:
     - python run.py --incremental --runner=indirect_travisci_tests --toolsets=$CC --tag=${BOOST_TAG} ${BOOST_LIBRARIES}
+    - cat /home/travis/do_test/boost_regression/stage/bin/process_jam_log
 
 #after_success:
 #    - mkdir cover
