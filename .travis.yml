@@ -23,10 +23,13 @@ env:
 # Installing additional tools
 addons:
   apt:
+    sources:
+    - ubuntu-toolchain-r-test
     packages:
     - valgrind
     - python-yaml
     - lcov
+    - g++-6
 
 before_install:
     - BOOST_TAG=develop
@@ -38,7 +41,7 @@ before_install:
     - wget https://raw.githubusercontent.com/boostorg/regression/develop/testing/src/run.py
 
 script:
-    - python run.py --runner=indirect_travisci_tests --toolsets=$CC --tag=${BOOST_TAG} ${BOOST_LIBRARIES}
+    - python run.py --runner=indirect_travisci_tests --toolsets=g++-6 --tag=${BOOST_TAG} ${BOOST_LIBRARIES}
 
 #after_success:
 #    - mkdir cover
