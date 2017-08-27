@@ -13,12 +13,14 @@ env:
 # First part. Average build time: ~47-48 min
     - BOOST_LIBRARIES=--libraries=accumulators,algorithm,align,any,application,array,asio,assert,assign,atomic,bimap,bind,chrono,circular_buffer,compatibility,compute,concept_check,config,container,context,conversion,convert,core,coroutine,coroutine2,crc,date_time,detail,disjoint_sets,dll,document,dynamic_bitset,endian,exception,filesystem,flyweight,foreach,format,function,functional,function_types,fusion
 # Huge libraries
-#    - BOOST_LIBRARIES=--libraries=geometry,spirit,phoenix,mpl,mpi,preprocessor,predef
-    - BOOST_LIBRARIES=--libraries=gil,graph,graph_parallel,heap,icl,integer,move,optional,lexical_cast,pool,lambda,beast,stacktrace,thread,tokenizer,tuple,program_options
-    - BOOST_LIBRARIES=--libraries=interprocess,intrusive,io,iostreams,locale,local_function,lockfree,log,logic,math,msm,multi_array,multi_index,multiprecision,numeric,parameter,polygon
+#    - BOOST_LIBRARIES=--libraries=geometry,spirit,phoenix,mpl,mpi,preprocessor,predef,beast,stacktrace
+    - BOOST_LIBRARIES=--libraries=gil,graph,graph_parallel,heap,icl,integer,move,optional,lexical_cast,pool,lambda,thread,tokenizer,tuple,program_options
+    - BOOST_LIBRARIES=--libraries=interprocess,io,iostreams,locale,local_function,lockfree,log,logic,math,msm,multi_index,multiprecision,numeric,parameter,polygon
     - BOOST_LIBRARIES=--libraries=property_map,property_tree,proto,ptr_container,python,range,ratio,rational,regex,scope_exit,serialization
-    - BOOST_LIBRARIES=--libraries=signals,signals2,statechart,sync,system,test,throw_exception,tr1,trie,tti
+    - BOOST_LIBRARIES=--libraries=signals,signals2,statechart,sync,system,test,throw_exception,tr1,trie,tti,intrusive,multi_array
     - BOOST_LIBRARIES=--libraries=type_index,typeof,type_traits,units,unordered,utility,uuid,variant,vmd,wave,winapi,xpressive,static_assert,sort,timer,smart_ptr,type_erasure,random,iterator
+    #Try to test huge libraries
+    - BOOST_LIBRARIES=--libraries=beast,stacktrace
     # Libs list getting: echo -n "--libraries="; for i in $(ls -d */); do echo -n "${i%%/},"; done; echo
 
 # Installing additional tools
