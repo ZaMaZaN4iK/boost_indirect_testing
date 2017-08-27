@@ -13,14 +13,31 @@ env:
 # First part. Average build time: ~47-48 min
 #    - BOOST_LIBRARIES=--libraries=accumulators,algorithm,align,any,application,array,asio,assert,assign,atomic,bimap,bind,chrono,circular_buffer,compatibility,compute,concept_check,config,container,context,conversion,convert,core,coroutine,coroutine2,crc,date_time,detail,disjoint_sets,dll,document,dynamic_bitset,endian,exception,filesystem,flyweight,foreach,format,function,functional,function_types,fusion
 # Huge libraries
-#    - BOOST_LIBRARIES=--libraries=geometry,spirit,phoenix,mpl,mpi,preprocessor,predef,beast,stacktrace
-    - BOOST_LIBRARIES=--libraries=gil,graph,graph_parallel,heap,icl,integer,move,optional,lexical_cast,pool,lambda,tokenizer,tuple,program_options
-    - BOOST_LIBRARIES=--libraries=io,iostreams,locale,local_function,log,logic,math,multi_index,multiprecision,numeric,parameter
-    - BOOST_LIBRARIES=--libraries=property_map,property_tree,proto,ptr_container,python,range,ratio,rational,regex,scope_exit,serialization
+#    - BOOST_LIBRARIES=--libraries=geometry,spirit,phoenix,mpl,mpi,preprocessor,predef,thread,polygon,interprocess
+#    - BOOST_LIBRARIES=--libraries=gil,graph,graph_parallel,heap,icl,integer,move,optional,lexical_cast,pool,lambda,tokenizer,tuple,program_options
+     - BOOST_LIBRARIES=--libraries=log,logic,math,multi_index,multiprecision,numeric,parameter
+#    - BOOST_LIBRARIES=--libraries=property_map,property_tree,proto,ptr_container,python,range,ratio,rational,regex,scope_exit,serialization
 #    - BOOST_LIBRARIES=--libraries=signals,signals2,statechart,sync,system,test,throw_exception,tr1,trie,tti,intrusive,multi_array
-    - BOOST_LIBRARIES=--libraries=type_index,typeof,type_traits,units,unordered,utility,uuid,variant,vmd,wave,winapi,xpressive,static_assert,sort,timer,smart_ptr,type_erasure,random,iterator
+#    - BOOST_LIBRARIES=--libraries=type_index,typeof,type_traits,units,unordered,utility,uuid,variant,vmd,wave,winapi,xpressive,static_assert,sort,timer,smart_ptr,type_erasure,random,iterator
     #Try to test huge libraries
-    - BOOST_LIBRARIES=--libraries=beast,stacktrace,thread,interprocess,msm,polygon,lockfree
+    - BOOST_LIBRARIES=--libraries=beast,stacktrace,msm,lockfree
+    - BOOST_LIBRARIES=--libraries=spirit
+    - BOOST_LIBRARIES=--libraries=phoenix
+    - BOOST_LIBRARIES=--libraries=mpl
+    - BOOST_LIBRARIES=--libraries=mpi
+    - BOOST_LIBRARIES=--libraries=preprocessor
+    - BOOST_LIBRARIES=--libraries=predef
+    - BOOST_LIBRARIES=--libraries=thread
+    - BOOST_LIBRARIES=--libraries=polygon
+    - BOOST_LIBRARIES=--libraries=io,iostreams,locale,local_function
+    - BOOST_LIBRARIES=--libraries=bcp
+    - BOOST_LIBRARIES=--libraries=fiber
+    - BOOST_LIBRARIES=--libraries=hana
+    - BOOST_LIBRARIES=--libraries=metaparse
+    - BOOST_LIBRARIES=--libraries=mp11
+    - BOOST_LIBRARIES=--libraries=poly_collection
+    - BOOST_LIBRARIES=--libraries=process
+    - BOOST_LIBRARIES=--libraries=qvm
     # Libs list getting: echo -n "--libraries="; for i in $(ls -d */); do echo -n "${i%%/},"; done; echo
 
 # Installing additional tools
