@@ -42,6 +42,7 @@ before_install:
 
 script:
     - python run.py --runner=indirect_travisci_tests --toolsets=g++-6 --tag=${BOOST_TAG} ${BOOST_LIBRARIES}
+    - cat /home/travis/do_test/results/indirect_travisci_tests.xml
 
 #after_success:
 #    - mkdir cover
