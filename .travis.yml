@@ -41,7 +41,7 @@ before_install:
     - wget https://raw.githubusercontent.com/boostorg/regression/develop/testing/src/run.py
 
 script:
-    - python run.py --runner=indirect_travisci_tests --toolsets=g++-6 --tag=${BOOST_TAG} ${BOOST_LIBRARIES}
+    - python run.py --runner=indirect_travisci_tests --toolsets=gcc-6 --tag=${BOOST_TAG} ${BOOST_LIBRARIES}
     - cat /home/travis/do_test/results/bjam.log
 
 #after_success:
