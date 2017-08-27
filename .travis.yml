@@ -12,13 +12,13 @@ os:
 env:
 # First part. Average build time: ~47-48 min
     - BOOST_LIBRARIES=--libraries=accumulators,algorithm,align,any,application,array,asio,assert,assign,atomic,bimap,bind,chrono,circular_buffer,compatibility,compute,concept_check,config,container,context,conversion,convert,core,coroutine,coroutine2,crc,date_time,detail,disjoint_sets,dll,document,dynamic_bitset,endian,exception,filesystem,flyweight,foreach,format,function,functional,function_types,fusion
-# Geometry is very huge
-    - BOOST_LIBRARIES=--libraries=geometry
-    - BOOST_LIBRARIES=--libraries=gil,graph,graph_parallel,heap,icl,integer,move,optional,lexical_cast,pool,lambda
-    - BOOST_LIBRARIES=--libraries=interprocess,intrusive,io,iostreams,iterator,locale,local_function,lockfree,log,logic,math,mpi,mpl,msm,multi_array,multi_index,multiprecision,numeric,parameter,phoenix,polygon
-    - BOOST_LIBRARIES=--libraries=predef,preprocessor,program_options,property_map,property_tree,proto,ptr_container,python,random,range,ratio,rational,regex,scope_exit,serialization
-    - BOOST_LIBRARIES=--libraries=signals,signals2,smart_ptr,spirit,statechart,sync,system,test,thread,throw_exception,tokenizer,tr1,trie,tti,tuple,type_erasure
-    - BOOST_LIBRARIES=--libraries=type_index,typeof,type_traits,units,unordered,utility,uuid,variant,vmd,wave,winapi,xpressive,static_assert,sort,timer
+# Huge libraries
+#    - BOOST_LIBRARIES=--libraries=geometry,spirit,phoenix,mpl,mpi,preprocessor,predef
+    - BOOST_LIBRARIES=--libraries=gil,graph,graph_parallel,heap,icl,integer,move,optional,lexical_cast,pool,lambda,beast,stacktrace,thread,tokenizer,tuple,program_options
+    - BOOST_LIBRARIES=--libraries=interprocess,intrusive,io,iostreams,locale,local_function,lockfree,log,logic,math,msm,multi_array,multi_index,multiprecision,numeric,parameter,polygon
+    - BOOST_LIBRARIES=--libraries=property_map,property_tree,proto,ptr_container,python,range,ratio,rational,regex,scope_exit,serialization
+    - BOOST_LIBRARIES=--libraries=signals,signals2,statechart,sync,system,test,throw_exception,tr1,trie,tti
+    - BOOST_LIBRARIES=--libraries=type_index,typeof,type_traits,units,unordered,utility,uuid,variant,vmd,wave,winapi,xpressive,static_assert,sort,timer,smart_ptr,type_erasure,random,iterator
     # Libs list getting: echo -n "--libraries="; for i in $(ls -d */); do echo -n "${i%%/},"; done; echo
 
 # Installing additional tools
