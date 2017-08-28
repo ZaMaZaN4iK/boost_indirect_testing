@@ -18,16 +18,15 @@ env:
 #    
 # Huge libraries
 #    - BOOST_LIBRARIES=--libraries=geometry,math,multiprecision
-     - BOOST_LIBRARIES=--libraries=numeric,parameter
-     - BOOST_LIBRARIES=--libraries=gil,graph,graph_parallel,heap,icl,integer,move,optional,lexical_cast,pool,lambda,tokenizer,tuple,program_options,qvm,process,mp11,metaparse,polygon,predef,preprocessor,mpl,mpi,bcp,poly_collection,interprocess      
-# Try to test huge libraries
-     - BOOST_LIBRARIES=--libraries=beast,stacktrace,msm,lockfree,spirit
-     - BOOST_LIBRARIES=--libraries=io,iostreams,locale,local_function,thread,logic,multi_index
-     - BOOST_LIBRARIES=--libraries=fiber,hana,phoenix
-     - BOOST_LIBRARIES=--libraries=accumulators,algorithm,align,any,application,array,asio,assert,assign,atomic,bimap,bind,chrono,circular_buffer,compatibility,compute,concept_check,config,container,context,conversion,convert,core,coroutine,coroutine2,crc,date_time,detail,disjoint_sets,dll,document,dynamic_bitset,endian,exception,filesystem,flyweight,foreach,format,function,functional,function_types,fusion
-     - BOOST_LIBRARIES=--libraries=type_index,typeof,type_traits,units,unordered,utility,uuid,variant,vmd,wave,winapi,xpressive,static_assert,sort,timer,smart_ptr,type_erasure,random,iterator
-     - BOOST_LIBRARIES=--libraries=signals,signals2,statechart,sync,system,test,throw_exception,tr1,trie,tti,intrusive,multi_array,log
-     - BOOST_LIBRARIES=--libraries=property_map,property_tree,proto,ptr_container,python,range,ratio,rational,regex,scope_exit,serialization
+#     - BOOST_LIBRARIES=--libraries=numeric,parameter
+#     - BOOST_LIBRARIES=--libraries=gil,graph,graph_parallel,heap,icl,integer,move,optional,lexical_cast,pool,lambda,tokenizer,tuple,program_options,qvm,process,mp11,metaparse,polygon,predef,preprocessor,mpl,mpi,bcp,poly_collection,interprocess      
+#     - BOOST_LIBRARIES=--libraries=beast,stacktrace,msm,lockfree,spirit
+#     - BOOST_LIBRARIES=--libraries=io,iostreams,locale,local_function,thread,logic,multi_index
+#     - BOOST_LIBRARIES=--libraries=fiber,hana,phoenix
+#     - BOOST_LIBRARIES=--libraries=accumulators,algorithm,align,any,application,array,asio,assert,assign,atomic,bimap,bind,chrono,circular_buffer,compatibility,compute,concept_check,config,container,context,conversion,convert,core,coroutine,coroutine2,crc,date_time,detail,disjoint_sets,dll,document,dynamic_bitset,endian,exception,filesystem,flyweight,foreach,format,function,functional,function_types,fusion
+#     - BOOST_LIBRARIES=--libraries=type_index,typeof,type_traits,units,unordered,utility,uuid,variant,vmd,wave,winapi,xpressive,static_assert,sort,timer,smart_ptr,type_erasure,random,iterator
+#     - BOOST_LIBRARIES=--libraries=signals,signals2,statechart,sync,system,test,throw_exception,tr1,trie,tti,intrusive,multi_array,log
+#     - BOOST_LIBRARIES=--libraries=property_map,property_tree,proto,ptr_container,python,range,ratio,rational,regex,scope_exit,serialization
     # Libs list getting: echo -n "--libraries="; for i in $(ls -d */); do echo -n "${i%%/},"; done; echo
 
 # Installing additional tools
@@ -166,6 +165,123 @@ matrix:
         - COMPILER="clang-4.0"
         - BOOST_LIBRARIES=--libraries=numeric,parameter
         - NAME=TravisCI_part1
+        
+        
+    
+    
+#Part 2    
+    
+    - os: linux
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+          packages:
+            - g++-4.9
+            - cppcheck
+      env:
+         - COMPILER="CC=gcc-4.9"
+         - BOOST_LIBRARIES=--libraries=gil,graph,graph_parallel,heap,icl,integer,move,optional,lexical_cast,pool,lambda,tokenizer,tuple,program_options,qvm,process,mp11,metaparse,polygon,predef,preprocessor,mpl,mpi,bcp,poly_collection,interprocess      
+         - NAME=TravisCI_part2
+
+    # works on Precise and Trusty
+    - os: linux
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+          packages:
+            - g++-5
+      env:
+         - COMPILER="CC=gcc-5"
+         - BOOST_LIBRARIES=--libraries=gil,graph,graph_parallel,heap,icl,integer,move,optional,lexical_cast,pool,lambda,tokenizer,tuple,program_options,qvm,process,mp11,metaparse,polygon,predef,preprocessor,mpl,mpi,bcp,poly_collection,interprocess      
+         - NAME=TravisCI_part2
+
+    # works on Precise and Trusty
+    - os: linux
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+          packages:
+            - g++-6
+      env:
+        - COMPILER="CC=gcc-6"
+        - BOOST_LIBRARIES=--libraries=gil,graph,graph_parallel,heap,icl,integer,move,optional,lexical_cast,pool,lambda,tokenizer,tuple,program_options,qvm,process,mp11,metaparse,polygon,predef,preprocessor,mpl,mpi,bcp,poly_collection,interprocess      
+        - NAME=TravisCI_part2
+
+
+
+
+    # Clang builds part
+    # works on Precise and Trusty
+    - os: linux
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+            - llvm-toolchain-precise-3.6
+          packages:
+            - clang-3.6
+      env:
+        - COMPILER="CC=clang-3.6"
+        - BOOST_LIBRARIES=--libraries=gil,graph,graph_parallel,heap,icl,integer,move,optional,lexical_cast,pool,lambda,tokenizer,tuple,program_options,qvm,process,mp11,metaparse,polygon,predef,preprocessor,mpl,mpi,bcp,poly_collection,interprocess      
+        - NAME=TravisCI_part2
+
+    # works on Precise and Trusty
+    - os: linux
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+            - llvm-toolchain-precise-3.7
+          packages:
+            - clang-3.7
+      env:
+        - COMPILER="CC=clang-3.7"
+        - BOOST_LIBRARIES=--libraries=gil,graph,graph_parallel,heap,icl,integer,move,optional,lexical_cast,pool,lambda,tokenizer,tuple,program_options,qvm,process,mp11,metaparse,polygon,predef,preprocessor,mpl,mpi,bcp,poly_collection,interprocess      
+        - NAME=TravisCI_part2
+
+    # works on Precise and Trusty
+    - os: linux
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+            - llvm-toolchain-precise-3.8
+          packages:
+            - clang-3.8
+      env:
+        - COMPILER="CC=clang-3.8"
+        - BOOST_LIBRARIES=--libraries=gil,graph,graph_parallel,heap,icl,integer,move,optional,lexical_cast,pool,lambda,tokenizer,tuple,program_options,qvm,process,mp11,metaparse,polygon,predef,preprocessor,mpl,mpi,bcp,poly_collection,interprocess      
+        - NAME=TravisCI_part2
+
+    # works on Trusty
+    - os: linux
+      addons:
+        apt:
+          sources:
+            - llvm-toolchain-trusty-3.9
+          packages:
+            - clang-3.9
+      env:
+        - COMPILER="CC=clang-3.9"
+        - BOOST_LIBRARIES=--libraries=gil,graph,graph_parallel,heap,icl,integer,move,optional,lexical_cast,pool,lambda,tokenizer,tuple,program_options,qvm,process,mp11,metaparse,polygon,predef,preprocessor,mpl,mpi,bcp,poly_collection,interprocess      
+        - NAME=TravisCI_part2
+
+    # works on Trusty
+    - os: linux
+      addons:
+        apt:
+          sources:
+            - llvm-toolchain-trusty-4.0
+          packages:
+            - clang-4.0
+      env:
+        - COMPILER="clang-4.0"
+        - BOOST_LIBRARIES=--libraries=gil,graph,graph_parallel,heap,icl,integer,move,optional,lexical_cast,pool,lambda,tokenizer,tuple,program_options,qvm,process,mp11,metaparse,polygon,predef,preprocessor,mpl,mpi,bcp,poly_collection,interprocess      
+        - NAME=TravisCI_part2
+        
 
 #after_success:
 #    - mkdir cover
