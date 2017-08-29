@@ -9,7 +9,7 @@ dist: trusty
 sudo: true
 os:
     - linux
-    - osx
+
 
 language: generic
 cache: ccache
@@ -44,110 +44,189 @@ env:
 #    - lcov
 #    - g++-6
 
-env:
+#env:
 #    - BRANCH=develop
-#    - env: BRANCH=master
-    - NAME=CI-p-1 BOOST_LIBRARIES=--libraries=numeric,parameter
-    - NAME=CI-p-2 BOOST_LIBRARIES=--libraries=gil,graph,graph_parallel,heap,icl,integer,move,optional,lexical_cast,pool,lambda,tokenizer,tuple,program_options,qvm,process,mp11,metaparse,polygon,predef,preprocessor,mpl,mpi,bcp,poly_collection,interprocess
-    - NAME=CI-p-3 BOOST_LIBRARIES=--libraries=beast,stacktrace,msm,lockfree,spirit
-    - NAME=CI-p-4 BOOST_LIBRARIES=--libraries=io,iostreams,locale,local_function,thread,logic,multi_index
-    - NAME=CI-p-5 BOOST_LIBRARIES=--libraries=fiber,hana,phoenix
-    - NAME=CI-p-6 BOOST_LIBRARIES=--libraries=accumulators,algorithm,align,any,application,array,asio,assert,assign,atomic,bimap,bind,chrono,circular_buffer,compatibility,compute,concept_check,config,container,context,conversion,convert,core,coroutine,coroutine2,crc,date_time,detail,disjoint_sets,dll,document,dynamic_bitset,endian,exception,filesystem,flyweight,foreach,format,function,functional,function_types,fusion
-    - NAME=CI-p-7 BOOST_LIBRARIES=--libraries=type_index,typeof,type_traits,units,unordered,utility,uuid,variant,vmd,wave,winapi,xpressive,static_assert,sort,timer,smart_ptr,type_erasure,random,iterator
-    - NAME=CI-p-8 BOOST_LIBRARIES=--libraries=signals,signals2,statechart,sync,system,test,throw_exception,tr1,trie,tti,intrusive,multi_array,log
-    - NAME=CI-p-9 BOOST_LIBRARIES=--libraries=property_map,property_tree,proto,ptr_container,python,range,ratio,rational,regex,scope_exit,serialization
-    
-env:
-    - TOOLSET=clang-3.4
-    - TOOLSET=clang-3.5
-    - TOOLSET=clang-3.6
-    - TOOLSET=clang-3.7
-    - TOOLSET=clang-3.8
-    - TOOLSET=clang-3.9
-    - TOOLSET=clang-4.0 CXXFLAGS=-std=c++03
-    - TOOLSET=clang-4.0 CXXFLAGS=-std=c++11
-    - TOOLSET=clang-4.0 CXXFLAGS=-std=c++14
-    - TOOLSET=clang-4.0 CXXFLAGS=-std=c++1z
-    - TOOLSET=gcc-4.7
-    - TOOLSET=gcc-4.8
-    - TOOLSET=gcc-4.9
-    - TOOLSET=gcc-5
-    - TOOLSET=gcc-6
-    - TOOLSET=gcc-7 CXXFLAGS=-std=c++03
-    - TOOLSET=gcc-7 CXXFLAGS=-std=c++11
-    - TOOLSET=gcc-7 CXXFLAGS=-std=c++14
-    - TOOLSET=gcc-7 CXXFLAGS=-std=c++1z
-    - TOOLSET=gcc-7 CXXFLAGS=-std=gnu++03
-    - TOOLSET=gcc-7 CXXFLAGS=-std=gnu++11
-    - TOOLSET=gcc-7 CXXFLAGS=-std=gnu++14
-    - TOOLSET=gcc-7 CXXFLAGS=-std=gnu++1z
-    - TOOLSET=xcode-6.1
-    - TOOLSET=xcode-6.4
-    - TOOLSET=xcode-7.3
-    - TOOLSET=xcode-8.3 CXXFLAGS=-std=c++03
-    - TOOLSET=xcode-8.3 CXXFLAGS=-std=c++11
-    - TOOLSET=xcode-8.3 CXXFLAGS=-std=c++14
-    - TOOLSET=xcode-8.3 CXXFLAGS=-std=c++1z
-
-
-#matrix:
-#  exclude:
-#    - env: TRAVIS_EMPTY_JOB_WORKAROUND=true
-#  include:
-#    - env: BRANCH=develop
 ##    - env: BRANCH=master
-#    - env: NAME=CI-p-1 BOOST_LIBRARIES=--libraries=numeric,parameter
-#    - env: NAME=CI-p-2 BOOST_LIBRARIES=--libraries=gil,graph,graph_parallel,heap,icl,integer,move,optional,lexical_cast,pool,lambda,tokenizer,tuple,program_options,qvm,process,mp11,metaparse,polygon,predef,preprocessor,mpl,mpi,bcp,poly_collection,interprocess
-#    - env: NAME=CI-p-3 BOOST_LIBRARIES=--libraries=beast,stacktrace,msm,lockfree,spirit
-#    - env: NAME=CI-p-4 BOOST_LIBRARIES=--libraries=io,iostreams,locale,local_function,thread,logic,multi_index
-#    - env: NAME=CI-p-5 BOOST_LIBRARIES=--libraries=fiber,hana,phoenix
-#    - env: NAME=CI-p-6 BOOST_LIBRARIES=--libraries=accumulators,algorithm,align,any,application,array,asio,assert,assign,atomic,bimap,bind,chrono,circular_buffer,compatibility,compute,concept_check,config,container,context,conversion,convert,core,coroutine,coroutine2,crc,date_time,detail,disjoint_sets,dll,document,dynamic_bitset,endian,exception,filesystem,flyweight,foreach,format,function,functional,function_types,fusion
-#    - env: NAME=CI-p-7 BOOST_LIBRARIES=--libraries=type_index,typeof,type_traits,units,unordered,utility,uuid,variant,vmd,wave,winapi,xpressive,static_assert,sort,timer,smart_ptr,type_erasure,random,iterator
-#    - env: NAME=CI-p-8 BOOST_LIBRARIES=--libraries=signals,signals2,statechart,sync,system,test,throw_exception,tr1,trie,tti,intrusive,multi_array,log
-#    - env: NAME=CI-p-9 BOOST_LIBRARIES=--libraries=property_map,property_tree,proto,ptr_container,python,range,ratio,rational,regex,scope_exit,serialization
-#    - env: TOOLSET=clang-3.4
-#    - env: TOOLSET=clang-3.5
-#    - env: TOOLSET=clang-3.6
-#    - env: TOOLSET=clang-3.7
-#    - env: TOOLSET=clang-3.8
-#    - env: TOOLSET=clang-3.9
-#    - env: TOOLSET=clang-4.0 CXXFLAGS=-std=c++03
-#    - env: TOOLSET=clang-4.0 CXXFLAGS=-std=c++11
-#    - env: TOOLSET=clang-4.0 CXXFLAGS=-std=c++14
-#    - env: TOOLSET=clang-4.0 CXXFLAGS=-std=c++1z
-#    - env: TOOLSET=gcc-4.7
-#    - env: TOOLSET=gcc-4.8
-#    - env: TOOLSET=gcc-4.9
-#    - env: TOOLSET=gcc-5
-#    - env: TOOLSET=gcc-6
-#    - env: TOOLSET=gcc-7 CXXFLAGS=-std=c++03
-#    - env: TOOLSET=gcc-7 CXXFLAGS=-std=c++11
-#    - env: TOOLSET=gcc-7 CXXFLAGS=-std=c++14
-#    - env: TOOLSET=gcc-7 CXXFLAGS=-std=c++1z
-#    - env: TOOLSET=gcc-7 CXXFLAGS=-std=gnu++03
-#    - env: TOOLSET=gcc-7 CXXFLAGS=-std=gnu++11
-#    - env: TOOLSET=gcc-7 CXXFLAGS=-std=gnu++14
-#    - env: TOOLSET=gcc-7 CXXFLAGS=-std=gnu++1z
-#    - env: TOOLSET=xcode-6.1
-#      os: osx
-#    - env: TOOLSET=xcode-6.4
-#      os: osx
-#      osx_image: xcode6.4
-#    - env: TOOLSET=xcode-7.3
-#      os: osx
-#      osx_image: xcode7.3
-#    - env: TOOLSET=xcode-8.3 CXXFLAGS=-std=c++03
-#      os: osx
-#      osx_image: xcode8.3
-#    - env: TOOLSET=xcode-8.3 CXXFLAGS=-std=c++11
-#      os: osx
-#      osx_image: xcode8.3
-#    - env: TOOLSET=xcode-8.3 CXXFLAGS=-std=c++14
-#      os: osx
-#      osx_image: xcode8.3
-#    - env: TOOLSET=xcode-8.3 CXXFLAGS=-std=c++1z
-#      os: osx
-#      osx_image: xcode8.3
+#    - NAME=CI-p-1 BOOST_LIBRARIES=--libraries=numeric,parameter
+#    - NAME=CI-p-2 BOOST_LIBRARIES=--libraries=gil,graph,graph_parallel,heap,icl,integer,move,optional,lexical_cast,pool,lambda,tokenizer,tuple,program_options,qvm,process,mp11,metaparse,polygon,predef,preprocessor,mpl,mpi,bcp,poly_collection,interprocess
+#    - NAME=CI-p-3 BOOST_LIBRARIES=--libraries=beast,stacktrace,msm,lockfree,spirit
+#    - NAME=CI-p-4 BOOST_LIBRARIES=--libraries=io,iostreams,locale,local_function,thread,logic,multi_index
+#    - NAME=CI-p-5 BOOST_LIBRARIES=--libraries=fiber,hana,phoenix
+#    - NAME=CI-p-6 BOOST_LIBRARIES=--libraries=accumulators,algorithm,align,any,application,array,asio,assert,assign,atomic,bimap,bind,chrono,circular_buffer,compatibility,compute,concept_check,config,container,context,conversion,convert,core,coroutine,coroutine2,crc,date_time,detail,disjoint_sets,dll,document,dynamic_bitset,endian,exception,filesystem,flyweight,foreach,format,function,functional,function_types,fusion
+#    - NAME=CI-p-7 BOOST_LIBRARIES=--libraries=type_index,typeof,type_traits,units,unordered,utility,uuid,variant,vmd,wave,winapi,xpressive,static_assert,sort,timer,smart_ptr,type_erasure,random,iterator
+#    - NAME=CI-p-8 BOOST_LIBRARIES=--libraries=signals,signals2,statechart,sync,system,test,throw_exception,tr1,trie,tti,intrusive,multi_array,log
+#    - NAME=CI-p-9 BOOST_LIBRARIES=--libraries=property_map,property_tree,proto,ptr_container,python,range,ratio,rational,regex,scope_exit,serialization
+#    - TOOLSET=clang-3.4
+#    - TOOLSET=clang-3.5
+#    - TOOLSET=clang-3.6
+#    - TOOLSET=clang-3.7
+#    - TOOLSET=clang-3.8
+#    - TOOLSET=clang-3.9
+#    - TOOLSET=clang-4.0 CXXFLAGS=-std=c++03
+#    - TOOLSET=clang-4.0 CXXFLAGS=-std=c++11
+#    - TOOLSET=clang-4.0 CXXFLAGS=-std=c++14
+#    - TOOLSET=clang-4.0 CXXFLAGS=-std=c++1z
+#    - TOOLSET=gcc-4.7
+#    - TOOLSET=gcc-4.8
+#    - TOOLSET=gcc-4.9
+#    - TOOLSET=gcc-5
+#    - TOOLSET=gcc-6
+#    - TOOLSET=gcc-7 CXXFLAGS=-std=c++03
+#    - TOOLSET=gcc-7 CXXFLAGS=-std=c++11
+#    - TOOLSET=gcc-7 CXXFLAGS=-std=c++14
+#    - TOOLSET=gcc-7 CXXFLAGS=-std=c++1z
+#    - TOOLSET=gcc-7 CXXFLAGS=-std=gnu++03
+#    - TOOLSET=gcc-7 CXXFLAGS=-std=gnu++11
+#    - TOOLSET=gcc-7 CXXFLAGS=-std=gnu++14
+#    - TOOLSET=gcc-7 CXXFLAGS=-std=gnu++1z
+#    - TOOLSET=xcode-6.1
+#    - TOOLSET=xcode-6.4
+#    - TOOLSET=xcode-7.3
+#    - TOOLSET=xcode-8.3 CXXFLAGS=-std=c++03
+#    - TOOLSET=xcode-8.3 CXXFLAGS=-std=c++11
+#    - TOOLSET=xcode-8.3 CXXFLAGS=-std=c++14
+#    - TOOLSET=xcode-8.3 CXXFLAGS=-std=c++1z
+
+
+matrix:
+  exclude:
+    - env: TRAVIS_EMPTY_JOB_WORKAROUND=true
+  include:
+    - env: NAME=CI-p-1 BOOST_LIBRARIES=--libraries=numeric,parameter TOOLSET=clang-3.4
+    - env: NAME=CI-p-2 BOOST_LIBRARIES=--libraries=gil,graph,graph_parallel,heap,icl,integer,move,optional,lexical_cast,pool,lambda,tokenizer,tuple,program_options,qvm,process,mp11,metaparse,polygon,predef,preprocessor,mpl,mpi,bcp,poly_collection,interprocess TOOLSET=clang-3.4
+    - env: NAME=CI-p-3 BOOST_LIBRARIES=--libraries=beast,stacktrace,msm,lockfree,spirit TOOLSET=clang-3.4
+    - env: NAME=CI-p-4 BOOST_LIBRARIES=--libraries=io,iostreams,locale,local_function,thread,logic,multi_index TOOLSET=clang-3.4
+    - env: NAME=CI-p-5 BOOST_LIBRARIES=--libraries=fiber,hana,phoenix TOOLSET=clang-3.4
+    - env: NAME=CI-p-6 BOOST_LIBRARIES=--libraries=accumulators,algorithm,align,any,application,array,asio,assert,assign,atomic,bimap,bind,chrono,circular_buffer,compatibility,compute,concept_check,config,container,context,conversion,convert,core,coroutine,coroutine2,crc,date_time,detail,disjoint_sets,dll,document,dynamic_bitset,endian,exception,filesystem,flyweight,foreach,format,function,functional,function_types,fusion TOOLSET=clang-3.4
+    - env: NAME=CI-p-7 BOOST_LIBRARIES=--libraries=type_index,typeof,type_traits,units,unordered,utility,uuid,variant,vmd,wave,winapi,xpressive,static_assert,sort,timer,smart_ptr,type_erasure,random,iterator TOOLSET=clang-3.4
+    - env: NAME=CI-p-8 BOOST_LIBRARIES=--libraries=signals,signals2,statechart,sync,system,test,throw_exception,tr1,trie,tti,intrusive,multi_array,log TOOLSET=clang-3.4
+    - env: NAME=CI-p-9 BOOST_LIBRARIES=--libraries=property_map,property_tree,proto,ptr_container,python,range,ratio,rational,regex,scope_exit,serialization TOOLSET=clang-3.4
+    - env: NAME=CI-p-1 BOOST_LIBRARIES=--libraries=numeric,parameter TOOLSET=clang-3.5
+    - env: NAME=CI-p-2 BOOST_LIBRARIES=--libraries=gil,graph,graph_parallel,heap,icl,integer,move,optional,lexical_cast,pool,lambda,tokenizer,tuple,program_options,qvm,process,mp11,metaparse,polygon,predef,preprocessor,mpl,mpi,bcp,poly_collection,interprocess TOOLSET=clang-3.5
+    - env: NAME=CI-p-3 BOOST_LIBRARIES=--libraries=beast,stacktrace,msm,lockfree,spirit TOOLSET=clang-3.5
+    - env: NAME=CI-p-4 BOOST_LIBRARIES=--libraries=io,iostreams,locale,local_function,thread,logic,multi_index TOOLSET=clang-3.5
+    - env: NAME=CI-p-5 BOOST_LIBRARIES=--libraries=fiber,hana,phoenix TOOLSET=clang-3.5
+    - env: NAME=CI-p-6 BOOST_LIBRARIES=--libraries=accumulators,algorithm,align,any,application,array,asio,assert,assign,atomic,bimap,bind,chrono,circular_buffer,compatibility,compute,concept_check,config,container,context,conversion,convert,core,coroutine,coroutine2,crc,date_time,detail,disjoint_sets,dll,document,dynamic_bitset,endian,exception,filesystem,flyweight,foreach,format,function,functional,function_types,fusion TOOLSET=clang-3.5
+    - env: NAME=CI-p-7 BOOST_LIBRARIES=--libraries=type_index,typeof,type_traits,units,unordered,utility,uuid,variant,vmd,wave,winapi,xpressive,static_assert,sort,timer,smart_ptr,type_erasure,random,iterator TOOLSET=clang-3.5
+    - env: NAME=CI-p-8 BOOST_LIBRARIES=--libraries=signals,signals2,statechart,sync,system,test,throw_exception,tr1,trie,tti,intrusive,multi_array,log TOOLSET=clang-3.5
+    - env: NAME=CI-p-9 BOOST_LIBRARIES=--libraries=property_map,property_tree,proto,ptr_container,python,range,ratio,rational,regex,scope_exit,serialization TOOLSET=clang-3.5
+    - env: NAME=CI-p-1 BOOST_LIBRARIES=--libraries=numeric,parameter TOOLSET=clang-3.6
+    - env: NAME=CI-p-2 BOOST_LIBRARIES=--libraries=gil,graph,graph_parallel,heap,icl,integer,move,optional,lexical_cast,pool,lambda,tokenizer,tuple,program_options,qvm,process,mp11,metaparse,polygon,predef,preprocessor,mpl,mpi,bcp,poly_collection,interprocess TOOLSET=clang-3.6
+    - env: NAME=CI-p-3 BOOST_LIBRARIES=--libraries=beast,stacktrace,msm,lockfree,spirit TOOLSET=clang-3.6
+    - env: NAME=CI-p-4 BOOST_LIBRARIES=--libraries=io,iostreams,locale,local_function,thread,logic,multi_index TOOLSET=clang-3.6
+    - env: NAME=CI-p-5 BOOST_LIBRARIES=--libraries=fiber,hana,phoenix TOOLSET=clang-3.6
+    - env: NAME=CI-p-6 BOOST_LIBRARIES=--libraries=accumulators,algorithm,align,any,application,array,asio,assert,assign,atomic,bimap,bind,chrono,circular_buffer,compatibility,compute,concept_check,config,container,context,conversion,convert,core,coroutine,coroutine2,crc,date_time,detail,disjoint_sets,dll,document,dynamic_bitset,endian,exception,filesystem,flyweight,foreach,format,function,functional,function_types,fusion TOOLSET=clang-3.6
+    - env: NAME=CI-p-7 BOOST_LIBRARIES=--libraries=type_index,typeof,type_traits,units,unordered,utility,uuid,variant,vmd,wave,winapi,xpressive,static_assert,sort,timer,smart_ptr,type_erasure,random,iterator TOOLSET=clang-3.6
+    - env: NAME=CI-p-8 BOOST_LIBRARIES=--libraries=signals,signals2,statechart,sync,system,test,throw_exception,tr1,trie,tti,intrusive,multi_array,log TOOLSET=clang-3.6
+    - env: NAME=CI-p-9 BOOST_LIBRARIES=--libraries=property_map,property_tree,proto,ptr_container,python,range,ratio,rational,regex,scope_exit,serialization TOOLSET=clang-3.6
+    - env: NAME=CI-p-1 BOOST_LIBRARIES=--libraries=numeric,parameter TOOLSET=clang-3.7
+    - env: NAME=CI-p-2 BOOST_LIBRARIES=--libraries=gil,graph,graph_parallel,heap,icl,integer,move,optional,lexical_cast,pool,lambda,tokenizer,tuple,program_options,qvm,process,mp11,metaparse,polygon,predef,preprocessor,mpl,mpi,bcp,poly_collection,interprocess TOOLSET=clang-3.7
+    - env: NAME=CI-p-3 BOOST_LIBRARIES=--libraries=beast,stacktrace,msm,lockfree,spirit TOOLSET=clang-3.7
+    - env: NAME=CI-p-4 BOOST_LIBRARIES=--libraries=io,iostreams,locale,local_function,thread,logic,multi_index TOOLSET=clang-3.7
+    - env: NAME=CI-p-5 BOOST_LIBRARIES=--libraries=fiber,hana,phoenix TOOLSET=clang-3.7
+    - env: NAME=CI-p-6 BOOST_LIBRARIES=--libraries=accumulators,algorithm,align,any,application,array,asio,assert,assign,atomic,bimap,bind,chrono,circular_buffer,compatibility,compute,concept_check,config,container,context,conversion,convert,core,coroutine,coroutine2,crc,date_time,detail,disjoint_sets,dll,document,dynamic_bitset,endian,exception,filesystem,flyweight,foreach,format,function,functional,function_types,fusion TOOLSET=clang-3.7
+    - env: NAME=CI-p-7 BOOST_LIBRARIES=--libraries=type_index,typeof,type_traits,units,unordered,utility,uuid,variant,vmd,wave,winapi,xpressive,static_assert,sort,timer,smart_ptr,type_erasure,random,iterator TOOLSET=clang-3.7
+    - env: NAME=CI-p-8 BOOST_LIBRARIES=--libraries=signals,signals2,statechart,sync,system,test,throw_exception,tr1,trie,tti,intrusive,multi_array,log TOOLSET=clang-3.7
+    - env: NAME=CI-p-9 BOOST_LIBRARIES=--libraries=property_map,property_tree,proto,ptr_container,python,range,ratio,rational,regex,scope_exit,serialization TOOLSET=clang-3.7
+    - env: NAME=CI-p-1 BOOST_LIBRARIES=--libraries=numeric,parameter TOOLSET=clang-3.8
+    - env: NAME=CI-p-2 BOOST_LIBRARIES=--libraries=gil,graph,graph_parallel,heap,icl,integer,move,optional,lexical_cast,pool,lambda,tokenizer,tuple,program_options,qvm,process,mp11,metaparse,polygon,predef,preprocessor,mpl,mpi,bcp,poly_collection,interprocess TOOLSET=clang-3.8
+    - env: NAME=CI-p-3 BOOST_LIBRARIES=--libraries=beast,stacktrace,msm,lockfree,spirit TOOLSET=clang-3.8
+    - env: NAME=CI-p-4 BOOST_LIBRARIES=--libraries=io,iostreams,locale,local_function,thread,logic,multi_index TOOLSET=clang-3.8
+    - env: NAME=CI-p-5 BOOST_LIBRARIES=--libraries=fiber,hana,phoenix TOOLSET=clang-3.8
+    - env: NAME=CI-p-6 BOOST_LIBRARIES=--libraries=accumulators,algorithm,align,any,application,array,asio,assert,assign,atomic,bimap,bind,chrono,circular_buffer,compatibility,compute,concept_check,config,container,context,conversion,convert,core,coroutine,coroutine2,crc,date_time,detail,disjoint_sets,dll,document,dynamic_bitset,endian,exception,filesystem,flyweight,foreach,format,function,functional,function_types,fusion TOOLSET=clang-3.8
+    - env: NAME=CI-p-7 BOOST_LIBRARIES=--libraries=type_index,typeof,type_traits,units,unordered,utility,uuid,variant,vmd,wave,winapi,xpressive,static_assert,sort,timer,smart_ptr,type_erasure,random,iterator TOOLSET=clang-3.8
+    - env: NAME=CI-p-8 BOOST_LIBRARIES=--libraries=signals,signals2,statechart,sync,system,test,throw_exception,tr1,trie,tti,intrusive,multi_array,log TOOLSET=clang-3.8
+    - env: NAME=CI-p-9 BOOST_LIBRARIES=--libraries=property_map,property_tree,proto,ptr_container,python,range,ratio,rational,regex,scope_exit,serialization TOOLSET=clang-3.8
+    - env: NAME=CI-p-1 BOOST_LIBRARIES=--libraries=numeric,parameter TOOLSET=clang-3.9
+    - env: NAME=CI-p-2 BOOST_LIBRARIES=--libraries=gil,graph,graph_parallel,heap,icl,integer,move,optional,lexical_cast,pool,lambda,tokenizer,tuple,program_options,qvm,process,mp11,metaparse,polygon,predef,preprocessor,mpl,mpi,bcp,poly_collection,interprocess TOOLSET=clang-3.9
+    - env: NAME=CI-p-3 BOOST_LIBRARIES=--libraries=beast,stacktrace,msm,lockfree,spirit TOOLSET=clang-3.9
+    - env: NAME=CI-p-4 BOOST_LIBRARIES=--libraries=io,iostreams,locale,local_function,thread,logic,multi_index TOOLSET=clang-3.9
+    - env: NAME=CI-p-5 BOOST_LIBRARIES=--libraries=fiber,hana,phoenix TOOLSET=clang-3.9
+    - env: NAME=CI-p-6 BOOST_LIBRARIES=--libraries=accumulators,algorithm,align,any,application,array,asio,assert,assign,atomic,bimap,bind,chrono,circular_buffer,compatibility,compute,concept_check,config,container,context,conversion,convert,core,coroutine,coroutine2,crc,date_time,detail,disjoint_sets,dll,document,dynamic_bitset,endian,exception,filesystem,flyweight,foreach,format,function,functional,function_types,fusion TOOLSET=clang-3.9
+    - env: NAME=CI-p-7 BOOST_LIBRARIES=--libraries=type_index,typeof,type_traits,units,unordered,utility,uuid,variant,vmd,wave,winapi,xpressive,static_assert,sort,timer,smart_ptr,type_erasure,random,iterator TOOLSET=clang-3.9
+    - env: NAME=CI-p-8 BOOST_LIBRARIES=--libraries=signals,signals2,statechart,sync,system,test,throw_exception,tr1,trie,tti,intrusive,multi_array,log TOOLSET=clang-3.9
+    - env: NAME=CI-p-9 BOOST_LIBRARIES=--libraries=property_map,property_tree,proto,ptr_container,python,range,ratio,rational,regex,scope_exit,serialization TOOLSET=clang-3.9
+    - env: NAME=CI-p-1 BOOST_LIBRARIES=--libraries=numeric,parameter TOOLSET=clang-4.0 CXXFLAGS=-std=c++03
+    - env: NAME=CI-p-2 BOOST_LIBRARIES=--libraries=gil,graph,graph_parallel,heap,icl,integer,move,optional,lexical_cast,pool,lambda,tokenizer,tuple,program_options,qvm,process,mp11,metaparse,polygon,predef,preprocessor,mpl,mpi,bcp,poly_collection,interprocess TOOLSET=clang-4.0 CXXFLAGS=-std=c++03
+    - env: NAME=CI-p-3 BOOST_LIBRARIES=--libraries=beast,stacktrace,msm,lockfree,spirit TOOLSET=clang-4.0 CXXFLAGS=-std=c++03
+    - env: NAME=CI-p-4 BOOST_LIBRARIES=--libraries=io,iostreams,locale,local_function,thread,logic,multi_index TOOLSET=clang-4.0 CXXFLAGS=-std=c++03
+    - env: NAME=CI-p-5 BOOST_LIBRARIES=--libraries=fiber,hana,phoenix TOOLSET=clang-4.0 CXXFLAGS=-std=c++03
+    - env: NAME=CI-p-6 BOOST_LIBRARIES=--libraries=accumulators,algorithm,align,any,application,array,asio,assert,assign,atomic,bimap,bind,chrono,circular_buffer,compatibility,compute,concept_check,config,container,context,conversion,convert,core,coroutine,coroutine2,crc,date_time,detail,disjoint_sets,dll,document,dynamic_bitset,endian,exception,filesystem,flyweight,foreach,format,function,functional,function_types,fusion TOOLSET=clang-4.0 CXXFLAGS=-std=c++03
+    - env: NAME=CI-p-7 BOOST_LIBRARIES=--libraries=type_index,typeof,type_traits,units,unordered,utility,uuid,variant,vmd,wave,winapi,xpressive,static_assert,sort,timer,smart_ptr,type_erasure,random,iterator TOOLSET=clang-4.0 CXXFLAGS=-std=c++03
+    - env: NAME=CI-p-8 BOOST_LIBRARIES=--libraries=signals,signals2,statechart,sync,system,test,throw_exception,tr1,trie,tti,intrusive,multi_array,log TOOLSET=clang-4.0 CXXFLAGS=-std=c++03
+    - env: NAME=CI-p-9 BOOST_LIBRARIES=--libraries=property_map,property_tree,proto,ptr_container,python,range,ratio,rational,regex,scope_exit,serialization TOOLSET=clang-4.0 CXXFLAGS=-std=c++03
+    - env: NAME=CI-p-1 BOOST_LIBRARIES=--libraries=numeric,parameter TOOLSET=clang-4.0 CXXFLAGS=-std=c++11
+    - env: NAME=CI-p-2 BOOST_LIBRARIES=--libraries=gil,graph,graph_parallel,heap,icl,integer,move,optional,lexical_cast,pool,lambda,tokenizer,tuple,program_options,qvm,process,mp11,metaparse,polygon,predef,preprocessor,mpl,mpi,bcp,poly_collection,interprocess TOOLSET=clang-4.0 CXXFLAGS=-std=c++11
+    - env: NAME=CI-p-3 BOOST_LIBRARIES=--libraries=beast,stacktrace,msm,lockfree,spirit TOOLSET=clang-4.0 CXXFLAGS=-std=c++11
+    - env: NAME=CI-p-4 BOOST_LIBRARIES=--libraries=io,iostreams,locale,local_function,thread,logic,multi_index TOOLSET=clang-4.0 CXXFLAGS=-std=c++11
+    - env: NAME=CI-p-5 BOOST_LIBRARIES=--libraries=fiber,hana,phoenix TOOLSET=clang-4.0 CXXFLAGS=-std=c++11
+    - env: NAME=CI-p-6 BOOST_LIBRARIES=--libraries=accumulators,algorithm,align,any,application,array,asio,assert,assign,atomic,bimap,bind,chrono,circular_buffer,compatibility,compute,concept_check,config,container,context,conversion,convert,core,coroutine,coroutine2,crc,date_time,detail,disjoint_sets,dll,document,dynamic_bitset,endian,exception,filesystem,flyweight,foreach,format,function,functional,function_types,fusion TOOLSET=clang-4.0 CXXFLAGS=-std=c++11
+    - env: NAME=CI-p-7 BOOST_LIBRARIES=--libraries=type_index,typeof,type_traits,units,unordered,utility,uuid,variant,vmd,wave,winapi,xpressive,static_assert,sort,timer,smart_ptr,type_erasure,random,iterator TOOLSET=clang-4.0 CXXFLAGS=-std=c++11
+    - env: NAME=CI-p-8 BOOST_LIBRARIES=--libraries=signals,signals2,statechart,sync,system,test,throw_exception,tr1,trie,tti,intrusive,multi_array,log TOOLSET=clang-4.0 CXXFLAGS=-std=c++11
+    - env: NAME=CI-p-9 BOOST_LIBRARIES=--libraries=property_map,property_tree,proto,ptr_container,python,range,ratio,rational,regex,scope_exit,serialization TOOLSET=clang-4.0 CXXFLAGS=-std=c++11
+    - env: NAME=CI-p-1 BOOST_LIBRARIES=--libraries=numeric,parameter TOOLSET=clang-4.0 CXXFLAGS=-std=c++14
+    - env: NAME=CI-p-2 BOOST_LIBRARIES=--libraries=gil,graph,graph_parallel,heap,icl,integer,move,optional,lexical_cast,pool,lambda,tokenizer,tuple,program_options,qvm,process,mp11,metaparse,polygon,predef,preprocessor,mpl,mpi,bcp,poly_collection,interprocess TOOLSET=clang-4.0 CXXFLAGS=-std=c++14
+    - env: NAME=CI-p-3 BOOST_LIBRARIES=--libraries=beast,stacktrace,msm,lockfree,spirit TOOLSET=clang-4.0 CXXFLAGS=-std=c++14
+    - env: NAME=CI-p-4 BOOST_LIBRARIES=--libraries=io,iostreams,locale,local_function,thread,logic,multi_index TOOLSET=clang-4.0 CXXFLAGS=-std=c++14
+    - env: NAME=CI-p-5 BOOST_LIBRARIES=--libraries=fiber,hana,phoenix TOOLSET=clang-4.0 CXXFLAGS=-std=c++14
+    - env: NAME=CI-p-6 BOOST_LIBRARIES=--libraries=accumulators,algorithm,align,any,application,array,asio,assert,assign,atomic,bimap,bind,chrono,circular_buffer,compatibility,compute,concept_check,config,container,context,conversion,convert,core,coroutine,coroutine2,crc,date_time,detail,disjoint_sets,dll,document,dynamic_bitset,endian,exception,filesystem,flyweight,foreach,format,function,functional,function_types,fusion TOOLSET=clang-4.0 CXXFLAGS=-std=c++14
+    - env: NAME=CI-p-7 BOOST_LIBRARIES=--libraries=type_index,typeof,type_traits,units,unordered,utility,uuid,variant,vmd,wave,winapi,xpressive,static_assert,sort,timer,smart_ptr,type_erasure,random,iterator TOOLSET=clang-4.0 CXXFLAGS=-std=c++14
+    - env: NAME=CI-p-8 BOOST_LIBRARIES=--libraries=signals,signals2,statechart,sync,system,test,throw_exception,tr1,trie,tti,intrusive,multi_array,log TOOLSET=clang-4.0 CXXFLAGS=-std=c++14
+    - env: NAME=CI-p-9 BOOST_LIBRARIES=--libraries=property_map,property_tree,proto,ptr_container,python,range,ratio,rational,regex,scope_exit,serialization TOOLSET=clang-4.0 CXXFLAGS=-std=c++14
+    - env: NAME=CI-p-1 BOOST_LIBRARIES=--libraries=numeric,parameter TOOLSET=clang-4.0 CXXFLAGS=-std=c++1z
+    - env: NAME=CI-p-2 BOOST_LIBRARIES=--libraries=gil,graph,graph_parallel,heap,icl,integer,move,optional,lexical_cast,pool,lambda,tokenizer,tuple,program_options,qvm,process,mp11,metaparse,polygon,predef,preprocessor,mpl,mpi,bcp,poly_collection,interprocess TOOLSET=clang-4.0 CXXFLAGS=-std=c++1z
+    - env: NAME=CI-p-3 BOOST_LIBRARIES=--libraries=beast,stacktrace,msm,lockfree,spirit TOOLSET=clang-4.0 CXXFLAGS=-std=c++1z
+    - env: NAME=CI-p-4 BOOST_LIBRARIES=--libraries=io,iostreams,locale,local_function,thread,logic,multi_index TOOLSET=clang-4.0 CXXFLAGS=-std=c++1z
+    - env: NAME=CI-p-5 BOOST_LIBRARIES=--libraries=fiber,hana,phoenix TOOLSET=clang-4.0 CXXFLAGS=-std=c++1z
+    - env: NAME=CI-p-6 BOOST_LIBRARIES=--libraries=accumulators,algorithm,align,any,application,array,asio,assert,assign,atomic,bimap,bind,chrono,circular_buffer,compatibility,compute,concept_check,config,container,context,conversion,convert,core,coroutine,coroutine2,crc,date_time,detail,disjoint_sets,dll,document,dynamic_bitset,endian,exception,filesystem,flyweight,foreach,format,function,functional,function_types,fusion TOOLSET=clang-4.0 CXXFLAGS=-std=c++1z
+    - env: NAME=CI-p-7 BOOST_LIBRARIES=--libraries=type_index,typeof,type_traits,units,unordered,utility,uuid,variant,vmd,wave,winapi,xpressive,static_assert,sort,timer,smart_ptr,type_erasure,random,iterator TOOLSET=clang-4.0 CXXFLAGS=-std=c++1z
+    - env: NAME=CI-p-8 BOOST_LIBRARIES=--libraries=signals,signals2,statechart,sync,system,test,throw_exception,tr1,trie,tti,intrusive,multi_array,log TOOLSET=clang-4.0 CXXFLAGS=-std=c++1z
+    - env: NAME=CI-p-9 BOOST_LIBRARIES=--libraries=property_map,property_tree,proto,ptr_container,python,range,ratio,rational,regex,scope_exit,serialization TOOLSET=clang-4.0 CXXFLAGS=-std=c++1z
+    
+    
+    #- env: TOOLSET=clang-3.4
+    #- env: TOOLSET=clang-3.5
+    #- env: TOOLSET=clang-3.6
+    #- env: TOOLSET=clang-3.7
+    #- env: TOOLSET=clang-3.8
+    #- env: TOOLSET=clang-3.9
+    #- env: TOOLSET=clang-4.0 CXXFLAGS=-std=c++03
+    #- env: TOOLSET=clang-4.0 CXXFLAGS=-std=c++11
+    #- env: TOOLSET=clang-4.0 CXXFLAGS=-std=c++14
+    #- env: TOOLSET=clang-4.0 CXXFLAGS=-std=c++1z
+    #- env: TOOLSET=gcc-4.7
+    #- env: TOOLSET=gcc-4.8
+    #- env: TOOLSET=gcc-4.9
+    #- env: TOOLSET=gcc-5
+    #- env: TOOLSET=gcc-6
+    #- env: TOOLSET=gcc-7 CXXFLAGS=-std=c++03
+    #- env: TOOLSET=gcc-7 CXXFLAGS=-std=c++11
+    #- env: TOOLSET=gcc-7 CXXFLAGS=-std=c++14
+    #- env: TOOLSET=gcc-7 CXXFLAGS=-std=c++1z
+    #- env: TOOLSET=gcc-7 CXXFLAGS=-std=gnu++03
+    #- env: TOOLSET=gcc-7 CXXFLAGS=-std=gnu++11
+    #- env: TOOLSET=gcc-7 CXXFLAGS=-std=gnu++14
+    #- env: TOOLSET=gcc-7 CXXFLAGS=-std=gnu++1z
+    #- env: TOOLSET=xcode-6.1
+    #  os: osx
+    #- env: TOOLSET=xcode-6.4
+    #  os: osx
+    #  osx_image: xcode6.4
+    #- env: TOOLSET=xcode-7.3
+    #  os: osx
+    #  osx_image: xcode7.3
+    #- env: TOOLSET=xcode-8.3 CXXFLAGS=-std=c++03
+    #  os: osx
+    #  osx_image: xcode8.3
+    #- env: TOOLSET=xcode-8.3 CXXFLAGS=-std=c++11
+    #  os: osx
+    #  osx_image: xcode8.3
+    #- env: TOOLSET=xcode-8.3 CXXFLAGS=-std=c++14
+    #  os: osx
+    #  osx_image: xcode8.3
+    #- env: TOOLSET=xcode-8.3 CXXFLAGS=-std=c++1z
+    #  os: osx
+    #  osx_image: xcode8.3
 
 
 before_install:
@@ -164,7 +243,7 @@ install:
     
 script:
     - while true ; do echo "... i'm alive ..."; sleep 60; done &
-    - python run.py --runner=${NAME}-${TOOLSET}-${CXXFLAGS} --bjam-options="-j2 cxxflags=${CXXFLAGS}" --toolsets=${TOOLSET} --tag=${BRANCH} ${BOOST_LIBRARIES}
+    - python run.py --runner=${NAME}-${TOOLSET}-${CXXFLAGS} --bjam-options="-j2 cxxflags=${CXXFLAGS}" --toolsets=${TOOLSET} --tag=develop ${BOOST_LIBRARIES}
 
     
 #after_success:
