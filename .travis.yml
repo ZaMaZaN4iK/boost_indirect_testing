@@ -45,7 +45,7 @@ env:
 #    - g++-6
 
 env:
-    - BRANCH=develop
+#    - BRANCH=develop
 #    - env: BRANCH=master
     - NAME=CI-p-1 BOOST_LIBRARIES=--libraries=numeric,parameter
     - NAME=CI-p-2 BOOST_LIBRARIES=--libraries=gil,graph,graph_parallel,heap,icl,integer,move,optional,lexical_cast,pool,lambda,tokenizer,tuple,program_options,qvm,process,mp11,metaparse,polygon,predef,preprocessor,mpl,mpi,bcp,poly_collection,interprocess
@@ -56,6 +56,8 @@ env:
     - NAME=CI-p-7 BOOST_LIBRARIES=--libraries=type_index,typeof,type_traits,units,unordered,utility,uuid,variant,vmd,wave,winapi,xpressive,static_assert,sort,timer,smart_ptr,type_erasure,random,iterator
     - NAME=CI-p-8 BOOST_LIBRARIES=--libraries=signals,signals2,statechart,sync,system,test,throw_exception,tr1,trie,tti,intrusive,multi_array,log
     - NAME=CI-p-9 BOOST_LIBRARIES=--libraries=property_map,property_tree,proto,ptr_container,python,range,ratio,rational,regex,scope_exit,serialization
+    
+env:
     - TOOLSET=clang-3.4
     - TOOLSET=clang-3.5
     - TOOLSET=clang-3.6
