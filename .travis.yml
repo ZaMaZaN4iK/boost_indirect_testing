@@ -243,7 +243,7 @@ install:
     
 script:
     - while true ; do echo "... i'm alive ..."; sleep 60; done &
-    - python run.py --runner=${NAME}-${TOOLSET}-${CXXFLAGS} --bjam-options="-j2 cxxflags=${CXXFLAGS}" --toolsets=${TOOLSET} --tag=develop ${BOOST_LIBRARIES}
+    - python run.py --runner=${NAME}-${TOOLSET}-${CXXFLAGS} --bjam-options="-j2 cxxflags="${CXXFLAGS}"" --toolsets=${TOOLSET} --tag=develop ${BOOST_LIBRARIES}
 
     
 #after_success:
