@@ -109,14 +109,14 @@ environment:
 #    APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2015
 
 init:
-    - cd %APPVEYOR_BUILD_FOLDER%/..
+    - cd %APPVEYOR_BUILD_FOLDER%
     - appveyor DownloadFile "https://raw.githubusercontent.com/boostorg/regression/develop/ci/src/ci_boost_common.py"
     - appveyor DownloadFile "https://raw.githubusercontent.com/boostorg/regression/develop/ci/src/ci_boost_library_test.py"
     - appveyor DownloadFile "https://raw.githubusercontent.com/boostorg/regression/develop/testing/src/run.py"
     - cd %APPVEYOR_BUILD_FOLDER%
 
-install: python ../ci_boost_library_test.py install
+install: python ci_boost_library_test.py install
     
 test_script:
 #    - if [ "${CXXFLAGS}" != "" ] ; then python run.py --runner=${NAME}-${TOOLSET}-${CXXFLAGS} --bjam-options="-j2 cxxflags=${CXXFLAGS}" --toolsets=${TOOLSET} --tag=develop ${BOOST_LIBRARIES} ; fi
-    - python ../run.py --runner=%NAME%-%TOOLSET%-%platform% --bjam-options=-j2 --toolsets=%TOOLSET% --tag=develop %BOOST_LIBRARIES%
+    - python run.py --runner=%NAME%-%TOOLSET%-%platform% --bjam-options=-j2 --toolsets=%TOOLSET% --tag=develop %BOOST_LIBRARIES%
