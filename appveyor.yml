@@ -8,6 +8,7 @@
 #    - NAME=CI-p-8 BOOST_LIBRARIES=--libraries=signals,signals2,statechart,sync,system,test,throw_exception,tr1,trie,tti,intrusive,multi_array,log
 #    - NAME=CI-p-9 BOOST_LIBRARIES=--libraries=property_map,property_tree,proto,ptr_container,python,range,ratio,rational,regex,scope_exit,serialization
 
+build: off
 
 environment:
   APPVEYOR_CACHE_ENTRY_ZIP_ARGS: -t7z -m0=lzma2 -mx=3
