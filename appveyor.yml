@@ -119,4 +119,4 @@ install: python ../ci_boost_library_test.py install
     
 test_script:
 #    - if [ "${CXXFLAGS}" != "" ] ; then python run.py --runner=${NAME}-${TOOLSET}-${CXXFLAGS} --bjam-options="-j2 cxxflags=${CXXFLAGS}" --toolsets=${TOOLSET} --tag=develop ${BOOST_LIBRARIES} ; fi
-    - python ../run.py --runner=${NAME}-${TOOLSET} --bjam-options=-j2 --toolsets=${TOOLSET} --tag=develop ${BOOST_LIBRARIES}
+    - python ../run.py --runner=%NAME%-%TOOLSET%-%platform% --bjam-options=-j2 --toolsets=%TOOLSET% --tag=develop %BOOST_LIBRARIES%
